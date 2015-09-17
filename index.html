@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Instant search demo built with instantsearch.js</title>
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="page-header">
+      <h1>Instant search demo <small>using instantsearch.js</small></h1>
+    </div>
+
+    <div class="row">
+      <div class="col-md-3">
+        <div class="panel">
+          <div class="panel-body" id="search-box"></div>
+        </div>
+
+        <div class="panel panel-default">
+          <div class="panel-heading">Categories</div>
+          <div id="categories" class="list-group"></div>
+        </div>
+
+        <div class="panel panel-default">
+          <div class="panel-heading">Brands</div>
+          <div class="panel-body" id="brands"></div>
+        </div>
+
+        <div class="panel panel-default">
+          <div class="panel-heading">Price Ranges</div>
+          <div class="list-group" id="price_range"></div>
+        </div>
+
+        <div class="panel panel-default">
+          <div class="panel-heading">Shipping</div>
+          <div class="panel-body">
+            <ul class="nav nav-stacked">
+              <li><div id="free_shipping"></div></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="panel panel-default">
+          <div class="panel-heading">Price</div>
+          <div class="panel-body">
+            <div id="price"></div>
+          </div>
+        </div>
+
+      </div>
+      <div class="col-md-9">
+        <div class="row">
+          <div class="col-md-8">
+            <div id="stats"></div>
+          </div>
+          <div class="col-md-4 text-right">
+            <div class="form-inline">
+              <div class="form-group">
+                <label for="index-selector-select">Sort by:</label>
+                <span id="index-selector"></span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div id="hits"></div>
+        <div id="pagination" class="text-center"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="bundle.js"></script>
+</body>
+</html>
