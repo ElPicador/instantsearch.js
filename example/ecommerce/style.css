@@ -1,0 +1,25 @@
+* {
+  box-sizing: border-box;
+}
+
+.l-container {
+}
+.l-header {
+}
+.l-body {
+  /* background: green; */
+  width: 100%;
+  overflow:hidden;
+}
+.l-sidebar {
+  float: left;
+  width: 25%;
+  /* background: red; */
+}
+.l-content {
+  float:right;
+  width: 75%;
+  /* background: black; */
+}
+.l-footer {
+}

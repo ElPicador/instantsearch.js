@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <title>Instant search demo built with instantsearch.js</title>
+  <!--[if lte IE 9]>
+  <script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
+  <![endif]-->
+  <link rel="stylesheet" href="./style.css">
+  <!-- <link rel="stylesheet" href="./debug.css"> -->
+  <link rel="stylesheet" href="./ecommerce.css">
+</head>
+<body>
+  <div class="l-container">
+    <div class="l-header">
+      <h1>Instant search demo <small>using instantsearch.js</small></h1>
+    </div>
+
+    <div class="l-body">
+      <div class="l-sidebar">
+        <div id="hierarchical-categories"></div>
+        <div id="brands"></div>
+        <div id="price-range"></div>
+        <div id="free-shipping"></div>
+        <div id="price"></div>
+        <div id="categories"></div>
+        <div id="price-ranges"></div>
+      </div>
+
+      <div class="l-content">
+
+        <input id="search-box" />
+
+        <div class="l-search-options">
+          <div id="stats"></div>
+          <div class="l-search-options--selector">
+            <label for="index-selector-select">Sort by:</label>
+            <span id="index-selector"></span>
+          </div>
+        </div>
+
+        <div id="hits"></div>
+
+        <div id="pagination"></div>
+      </div>
+    </div>
+
+    <div class="footer"></div>
+  </div>
+<script src="../bundle.js"></script>
+</body>
+</html>

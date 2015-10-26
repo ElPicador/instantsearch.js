@@ -7,6 +7,7 @@
   "scripts": {
     "build": "./scripts/build.sh",
     "dev": "npm install && webpack-dev-server --config webpack.example.config.js --hot --inline --no-info",
+    "dev:ecommerce": "npm install && webpack-dev-server --config webpack.ecommerce.config.js --hot --inline --no-info",
     "doctoc": "doctoc --maxlevel 3 README.md",
     "gh-pages": "./scripts/gh-pages.sh",
     "lint": "eslint . --quiet --no-color && stylelint './themes/**/*.css'",

@@ -1,0 +1,13 @@
+<div class="hit">
+  <div class="media">
+    <a class="pull-left" href="{{url}}">
+      <img class="media-object" src="{{image}}">
+    </a>
+    <div class="media-body">
+      <h3 class="pull-right text-right text-info">${{price}}</h3>
+      <h4>{{{_highlightResult.name.value}}}</h4>
+      <p>{{{_highlightResult.description.value}}}</p>
+      {{#free_shipping}}<span class="badge pull-right">Free Shipping</span>{{/free_shipping}}
+    </div>
+  </div>
+</div>
