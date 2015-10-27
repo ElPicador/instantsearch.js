@@ -1,25 +1,54 @@
 * {
   box-sizing: border-box;
 }
+html {
+  /* force vertical scrollbar no matter the content,
+  avoid container center position changes */
+  overflow-y: scroll;
+}
+body {
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 14px;
+  color: #333;
+  background-color: #fff;
+  padding:0;
+  margin:0;
+}
 
 .l-container {
+  border-top: 20px solid #3399cc;
+  padding:0 30px;
 }
 .l-header {
 }
 .l-body {
-  /* background: green; */
   width: 100%;
-  overflow:hidden;
+  display: table;
 }
 .l-sidebar {
-  float: left;
+  display: table-cell;
   width: 25%;
-  /* background: red; */
+  padding: 0 50px 0 0;
 }
 .l-content {
-  float:right;
+  display: table-cell;
   width: 75%;
-  /* background: black; */
+}
+.l-search-options {
+  border-bottom: 1px solid #CCC;
+  display: table;
+  padding: 15px 15px 5px 15px;
+  width: 100%;
+}
+.l-search-options--stats {
+  display: table-cell;
+  width: 50%;
+}
+.l-search-options--selector {
+  display: table-cell;
+  width: 50%;
+  text-align:right;
 }
 .l-footer {
 }
+
