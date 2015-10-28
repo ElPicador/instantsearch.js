@@ -1,9 +1,12 @@
 module.exports = {
-  entry: './example/app.js',
+  entry: {
+    default: './example/default/app.js',
+    ecommerce: './example/ecommerce/app.js'
+  },
   devtool: 'source-map',
   output: {
     path: './example/',
-    filename: 'bundle.js'
+    filename: '[name]/bundle.js'
   },
   module: {
     loaders: [{
