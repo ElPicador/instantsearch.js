@@ -1,13 +1,11 @@
-<div class="hit">
+<div class="hit col-sm-3">
   <div class="media">
-    <a class="pull-left" href="{{url}}">
+    <div class="media-left">
       <img class="media-object" src="{{image}}">
-    </a>
+    </div>
     <div class="media-body">
-      <h3 class="pull-right text-right text-info">${{price}}</h3>
-      <h4>{{{_highlightResult.name.value}}}</h4>
-      <p>{{{_highlightResult.description.value}}}</p>
-      {{#free_shipping}}<span class="badge pull-right">Free Shipping</span>{{/free_shipping}}
+      <h4 class="media-heading">{{{_highlightResult.title.value}}}</h4>
+      <p class="text-muted">{{ year }} - {{ genre }}</p>
     </div>
   </div>
 </div>
