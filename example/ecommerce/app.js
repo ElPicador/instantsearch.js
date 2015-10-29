@@ -53,6 +53,16 @@ search.addWidget(
   })
 );
 
+// search.addWidget(
+//   instantsearch.widgets.hierarchicalMenu({
+//     container: '#hierarchical-categories',
+//     attributes: ['hierarchicalCategories.lvl0', 'hierarchicalCategories.lvl1', 'hierarchicalCategories.lvl2'],
+//     templates: {
+//       header: 'Hierarchical categories'
+//     }
+//   })
+// );
+
 search.addWidget(
   instantsearch.widgets.refinementList({
     container: '#brands',
@@ -65,32 +75,47 @@ search.addWidget(
   })
 );
 
-search.addWidget(
-  instantsearch.widgets.refinementList({
-    container: '#price-range',
-    facetName: 'price_range',
-    operator: 'and',
-    limit: 10,
-    templates: {
-      header: 'Price ranges'
-    },
-    transformData: function(data) {
-      data.name = data.name.replace(/(\d+) - (\d+)/, '$$$1 - $$$2').replace(/> (\d+)/, '> $$$1');
-      return data;
-    }
-  })
-);
+// search.addWidget(
+//   instantsearch.widgets.refinementList({
+//     container: '#price-range',
+//     facetName: 'price_range',
+//     operator: 'and',
+//     limit: 10,
+//     templates: {
+//       header: 'Price ranges'
+//     },
+//     transformData: function(data) {
+//       data.name = data.name.replace(/(\d+) - (\d+)/, '$$$1 - $$$2').replace(/> (\d+)/, '> $$$1');
+//       return data;
+//     }
+//   })
+// );
 
-search.addWidget(
-  instantsearch.widgets.toggle({
-    container: '#free-shipping',
-    facetName: 'free_shipping',
-    label: 'Free Shipping',
-    templates: {
-      header: 'Shipping'
-    }
-  })
-);
+// search.addWidget(
+//   instantsearch.widgets.toggle({
+//     container: '#free-shipping',
+//     facetName: 'free_shipping',
+//     label: 'Free Shipping',
+//     templates: {
+//       header: 'Shipping'
+//     }
+//   })
+// );
+
+// search.addWidget(
+//   instantsearch.widgets.rangeSlider({
+//     container: '#price',
+//     facetName: 'price',
+//     templates: {
+//       header: 'Price'
+//     },
+//     tooltips: {
+//       format: function(formattedValue) {
+//         return '$' + formattedValue;
+//       }
+//     }
+//   })
+// );
 
 search.addWidget(
   instantsearch.widgets.menu({
@@ -99,31 +124,6 @@ search.addWidget(
     limit: 10,
     templates: {
       header: 'Categories'
-    }
-  })
-);
-
-search.addWidget(
-  instantsearch.widgets.rangeSlider({
-    container: '#price',
-    facetName: 'price',
-    templates: {
-      header: 'Price'
-    },
-    tooltips: {
-      format: function(formattedValue) {
-        return '$' + formattedValue;
-      }
-    }
-  })
-);
-
-search.addWidget(
-  instantsearch.widgets.hierarchicalMenu({
-    container: '#hierarchical-categories',
-    attributes: ['hierarchicalCategories.lvl0', 'hierarchicalCategories.lvl1', 'hierarchicalCategories.lvl2'],
-    templates: {
-      header: 'Hierarchical categories'
     }
   })
 );

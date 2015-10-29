@@ -11,10 +11,10 @@
   background: red;
   color: black;
   content: attr(class);
-  font-size: 1rem;
+  font-size: .8rem;
   height: 20px;
   left: 0;
-  padding: .5rem;
+  padding: .3rem;
   position: absolute;
   top: 0;
   white-space: nowrap;
