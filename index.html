@@ -1,66 +1,299 @@
 <!doctype html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-  <title>Instant search demo built with instantsearch.js</title>
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/bootstrap/3.3.5/css/bootstrap.min.css">
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/bootstrap/3.3.5/css/bootstrap-theme.min.css">
-  <!--[if lte IE 9]>
-  <script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
-  <![endif]-->
-  <!-- <link rel="stylesheet" href="./debug.css"> -->
-  <link rel="stylesheet" href="./default.css">
-  <link rel="stylesheet" href="./style.css">
-</head>
-<body>
-  <div class="container">
-    <div class="page-header">
-      <h1><a href="./">Instant search demo</a> <small>using instantsearch.js</small></h1>
-    </div>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <div class="row search search--hidden">
-      <div class="col-md-3">
-        <div class="facet" id="hierarchical-categories"></div>
-        <div class="facet" id="brands"></div>
-        <div class="facet" id="price-range"></div>
-        <div class="facet" id="free-shipping"></div>
-        <div class="facet" id="price"></div>
-        <div class="facet" id="categories"></div>
-        <div class="facet" id="price-ranges"></div>
+    <title>Instantsearch.js</title>
+    <meta name="description" content="instantsearch.js is a library of widgets to build high performance instant search experiences using Algolia">
+
+    <link rel="stylesheet" href="/instantsearch.js/css/main.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="/instantsearch.js/css/default-theme.css" />
+
+    <script src="https://cdn.jsdelivr.net/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/scrollmagic/2.0.5/ScrollMagic.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/scrollmagic/2.0.5/plugins/animation.gsap.min.js"></script>
+    
+      <script src="https://cdn.jsdelivr.net/scrollmagic/2.0.5/plugins/debug.addIndicators.min.js"></script>
+      <script src="http://localhost:35730/livereload.js"></script>
+    
+    <link rel="stylesheet" media="screen" href="//fonts.googleapis.com/css?family=Raleway:300,800" />
+    <link rel="stylesheet" media="screen" href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600" />
+
+    <!--[if IE]><link rel="shortcut icon" href="/instantsearch.js/img/favicon.png"><![endif]-->
+    <link rel="icon" href="/instantsearch.js/img/favicon.png">
+
+  </head>
+
+  <body>
+    <header class="site-header">
+
+  <nav class="navbar navbar-default  navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="/instantsearch.js/">Instantsearch.js</a>
       </div>
-      <div class="col-md-9">
-        <div class="form-group">
-          <input id="search-box" class="form-control" />
-        </div>
-        <div class="row">
-          <div class="col-md-4">
-            <div id="stats"></div>
-          </div>
-          <div class="col-md-4 text-right">
-            <div class="form-inline">
-              <div class="form-group">
-                <label for="hits-per-page-select">Show:</label>
-                <span id="hits-per-page-selector"></span>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 text-right">
-            <div class="form-inline">
-              <div class="form-group">
-                <label for="index-selector-select">Sort by:</label>
-                <span id="index-selector"></span>
-              </div>
-            </div>
-          </div>
 
+      <ul class="nav navbar-nav">
+        
+        
+          <li >
+            <a href="/instantsearch.js/documentation/" title="">Documentation</a>
+          </li>
+        
+          <li >
+            <a href="/instantsearch.js/examples/" title="">Examples</a>
+          </li>
+        
+          <li >
+            <a href="/instantsearch.js/about/" title="">About</a>
+          </li>
+        
+          <li>
+            <a
+              href="http://github.com/algolia/instantsearch.js"
+              title="See more, open issues and get answers in our Github repository">
+                <i class="fa fa-github"></i>
+            </a>
+          </li>
+      </ul>
+    </div>
+  </nav>
+
+</header>
+
+
+    <div id='space-overlay'></div>
+<canvas id='space'></canvas>
+<section class='hero window'>
+  <div class='container'>
+    <div class='row'>
+      <div class='col-xs-6'>
+        <div class='spacer40'></div>
+        <div class='presented-by'>
+          <a href='https://www.algolia.com' target='_blank' title='Instant Search as a Service'>
+            <img src='img/algolia-logo.svg' width='100'>
+          </a>
+          presents:
         </div>
-        <div id="hits"></div>
-        <div id="pagination" class="text-center"></div>
+        <h1>
+          <img height='70' src='img/logo-instantsearch.svg'>
+        </h1>
+        <p class='vp'>
+          The library of UI widgets to build the best instant-search experience with
+          <a href='https://www.algolia.com'>Algolia's Hosted Search API.</a>
+        </p>
+        <div class='spacer40'></div>
+        <a class='twitter-follow-button' data-show-count='false' href='https://twitter.com/algolia'>Follow @algolia</a>
+        <span>&nbsp;</span>
+        <iframe frameborder='0' height='20' scrolling='0' src='https://ghbtns.com/github-btn.html?user=algolia&amp;repo=instantsearch.js&amp;type=star&amp;count=true' width='170'></iframe>
+        <div class='spacer100'></div>
+        <h2>There’s a widget for that</h2>
+        <p class='lead'>
+          Pick from an extensive library of widgets to power your search
+          <br>
+          and build a state of the art instant search experience.
+        </p>
+        <div class='spacer30'></div>
+        <div class='row'>
+          <div class='col-xs-6 widget-intro w-1'>
+            <img class='m-r m-t' src='img/icon-widget-searchbox.svg' width='50'>
+            <h4>Search Box</h4>
+            <p>Search at each keystroke</p>
+          </div>
+          <div class='col-xs-6 widget-intro w-2'>
+            <img class='m-r m-t' src='img/icon-widget-filter.svg' width='50'>
+            <h4>Filters</h4>
+            <p>List of links or checkboxes</p>
+          </div>
+        </div>
+        <div class='spacer30'></div>
+        <div class='row'>
+          <div class='col-xs-6 widget-intro w-3'>
+            <img class='m-r m-t' src='img/icon-widget-slider.svg' width='50'>
+            <h4>Slider</h4>
+            <p>Filter numerical values</p>
+          </div>
+          <div class='col-xs-6 widget-intro w-4'>
+            <img class='m-r m-t' src='img/icon-widget-results.svg' width='50'>
+            <h4>Results</h4>
+            <p>Grid of search results</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
+</section>
+<section class='window' id='widget-customization-1'>
+  <div class='container'>
+    <div class='row'>
+      <div class='col-xs-6'>
+        <img src='img/icon-infinite.svg' width='70'>
+        <h2>Infinite possibilities</h2>
+        <p class='lead'>Every website is different. The modular design of instantsearch.js allows you to configure, rearrange and combine the widgets to build your own experience.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<section class='window' id='widget-customization-2'>
+  <div class='container'>
+    <div class='row'>
+      <div class='col-xs-6'>
+        <img src='img/icon-community.svg' width='70'>
+        <h2>Bring your own widget</h2>
+        <p class='lead'>Sometimes you want to deviate from the standard path and build a custom feature. You can do that by forking a widget or coding your own and integrating into the open source project.</p>
+        <div class='widget-intro w-1'>
+          <img class='m-r m-t' src='img/icon-widget-custom.svg' width='50'>
+          <h4>Custom Widget</h4>
+          <p>Fork and custom your own widgets.</p>
+        </div>
+        <div class='spacer30'></div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class='window pos-rel' id='widget-customization-3'>
+  <div class='container'>
+    <div class='row'>
+      <div class='col-xs-6'>
+        <img src='img/icon-theme.svg' width='70'>
+        <h2>Themes</h2>
+        <p class='lead'>Each widget has been designed to be heavily styled & customized. Be it using templates or simple CSS rules, make them look like the way you want.</p>
+      </div>
+    </div>
+  </div>
+  <div class='anim-container'>
+    <div class='container'>
+      <div class='row'>
+        <div class='col-xs-6'></div>
+        <div class='col-xs-6'>
+          <div id='anim'>
+            <div class='widget widget-1'></div>
+            <div class='widget widget-2'></div>
+            <div class='widget widget-3'></div>
+            <div class='widget widget-4'></div>
+            <div class='widget widget-5'></div>
+            <div class='widget widget-6'></div>
+            <div class='widget widget-7'></div>
+            <div class='screen screen-1'>
+              <img src='img/combinations.svg' width='420'>
+            </div>
+            <div class='screen screen-2'>
+              <img src='img/combinations.svg' width='420'>
+            </div>
+            <div class='screen screen-3'>
+              <img src='img/combinations.svg' width='420'>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<svg height='100' id='curveUpColor' preserveAspectRatio='none' version='1.1' viewBox='0 0 100 100' width='100%' xmlns='http://www.w3.org/2000/svg'>
+  <path d='M0 100 C40 0 60 0 100 100 Z'></path>
+</svg>
+<section class='bg-white'>
+  <div class='container'>
+    <div class='spacer100'></div>
+    <div class='row'>
+      <div class='col-xs-4 col-xs-offset-1'>
+        <section id='instantsearch-vp-1'>
+          <div class='text-center'>
+            <img src='img/icon-ux.svg'>
+            <h2>Search UX done right</h2>
+          </div>
+          <p>Algolia strives to build the best search experience for the end users. All of the best practices we learned while implementing search on hundreds of websites are now packed into our widgets.</p>
+        </section>
+      </div>
+      <div class='col-xs-4 col-xs-offset-2'>
+        <section id='instantsearch-vp-2'>
+          <div class='text-center'>
+            <img src='img/icon-update.svg'>
+            <h2>Always improving</h2>
+          </div>
+          <p>The instant-search experience is already deployed in hundreds of websites. We inject all the feedback and collective experience we get back into the widgets.</p>
+        </section>
+      </div>
+    </div>
+    <div class='spacer100'></div>
+    <div class='panel panel-default text-center'>
+      <div class='panel-body'>
+        <div class='row'>
+          <div class='col-xs-8 text-right'>
+            <div class='spacer5'></div>
+            <span class='h4'>
+              <strong>Explore Instantsearch.js.</strong>
+              Learn more about instant search's features and widgets.
+            </span>
+          </div>
+          <div class='col-xs-4'>
+            <a class='btn btn-primary' href='/instantsearch.js/documentation/'>Get started with Instantsearch.js</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <script src="bundle.js"></script>
-</body>
+
+    
+      <div class="spacer100 bg-white"></div>
+<footer class="site-footer">
+  <p>
+    Designed and built with <i class="fa fa-heart"></i> by <a href="https://www.algolia.com">Algolia</a><br />
+    Code licensed under <a href="https://github.com/algolia/instantsearch.js/blob/master/LICENSE">MIT</a>
+  </p>
+  <p>
+    <ul class="list-inline">
+      <li>Currently v</li>
+      <li>•</li>
+      <li><a href="http://github.com/algolia/instantsearch.js">GitHub</a></li>
+      <li>•</li>
+      <li><a href="http://github.com/algolia/instantsearch.js/issues">Issues</a></li>
+      <li>•</li>
+      <li><a href="http://github.com/algolia/instantsearch.js/releases">Releases</a></li>
+    </ul>
+  </p>
+  <div class="m400 m-l-r-auto">
+    <!-- Begin MailChimp Signup Form -->
+<link href="//cdn-images.mailchimp.com/embedcode/classic-081711.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+  #mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; }
+  /* Add your own MailChimp form style overrides in your site stylesheet or in this style block.
+     We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+</style>
+<div id="mc_embed_signup">
+<form action="//algolia.us3.list-manage.com/subscribe/post?u=f7b8acc6ec97794a08484ca9b&amp;id=285b80e148" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+  <div id="mc_embed_signup_scroll">
+  <h4>Subscribe to our mailing list</h4>
+<div class="mc-field-group">
+  <label for="mce-EMAIL">Email Address </label>
+  <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL">
+</div>
+  <div id="mce-responses" class="clear">
+    <div class="response" id="mce-error-response" style="display:none"></div>
+    <div class="response" id="mce-success-response" style="display:none"></div>
+  </div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+    <div style="position: absolute; left: -5000px;"><input type="text" name="b_f7b8acc6ec97794a08484ca9b_285b80e148" tabindex="-1" value=""></div>
+    <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+    </div>
+</form>
+</div>
+<script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script><script type='text/javascript'>(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';fnames[3]='MMERGE3';ftypes[3]='text';}(jQuery));var $mcj = jQuery.noConflict(true);</script>
+<!--End mc_embed_signup-->
+  </div>
+  <div class="spacer50"></div>
+</footer>
+
+      <script type="text/javascript" src="/instantsearch.js/js/home.js"></script>
+<!-- /twitter -->
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+    
+  </body>
+
 </html>
